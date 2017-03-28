@@ -1,0 +1,10 @@
+{
+	"browserType":"mobile",
+	
+	"explicitWaitMS":"5000",
+	"waitForElement":"10000",
+	"consoleLogParserTag":"defaultSearchObj",
+	"execution_environment":"local",
+	"device_Id":"66cfb4ad",
+	"device_Type":"actual"
+}

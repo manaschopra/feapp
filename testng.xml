@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="FEAppTest" verbose="1">
+<listeners>
+	<listener class-name="q" />
+		<listener class-name="com.oyo.BuggersLibs.listeners.RetryListener" />
+</listeners>
+	<test name="Regression suite">
+		<classes>
+			<class name="tests.LogInPageTest" />
+		</classes>
+	</test>
+</suite>
+
