@@ -15,7 +15,7 @@ public class LogInPage extends BasePage {
 	}
 
 	
-	public void logIn() {
+	public String  logIn() {
 		
 		String loginId = "delhivery.lastmile.dev:id/login_phone_et";
 		helper.findElementById(loginId).sendKeys("9654988087");
@@ -29,6 +29,7 @@ public class LogInPage extends BasePage {
 		
 		String Text= helper.findElementByXpath("//android.widget.TextView[@text='Last Mile']").getText();
 		System.out.println(Text);
+		return Text;
 		
 	}	
 		
