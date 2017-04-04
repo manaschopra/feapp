@@ -56,6 +56,7 @@ public class AppLauncher {
         capabilities.setCapability(MobileCapabilityType.APP, appPath);
         System.out.println(appPath);
         driver = initDriver();
+    
         
         return driver;
     }
@@ -67,8 +68,7 @@ public class AppLauncher {
 		String nodeip = "";
 		String nodeUrl2 = "/wd/hub";
 		String nodeUrl = "";
-		String ipAddress = "mactech123:21f869db-6ec8-489a-ac48-c8aac1b4f11c@ondemand.saucelabs.com:80";
-		String port1 = ":9283";
+		
 		String publicipAddress="0.0.0.0";;
 		
 		//check and set the execution environment
