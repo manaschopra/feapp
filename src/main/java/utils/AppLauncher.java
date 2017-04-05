@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
@@ -38,11 +40,31 @@ public class AppLauncher {
     	 service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder().usingPort(0).usingDriverExecutable(new File("/home/delhivery/.linuxbrew/bin/node")).withAppiumJS(new File("/home/delhivery/.linuxbrew/bin/appium")));
          service_url = service.getUrl().toString();
          service.start();
+         try {
+             Process process = Runtime.getRuntime().exec("/home/delhivery/android-sdk-linux/platform-tools/adb devices");
+             BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));  
+             String line = null;  
+
+             Pattern pattern = Pattern.compile("^([a-zA-Z0-9\\-]+)(\\s+)(device)");
+             Matcher matcher;
+
+             while ((line = in.readLine()) != null) {  
+                 if (line.matches(pattern.pattern())) {
+                     matcher = pattern.matcher(line);
+                     if (matcher.find()){
+                         System.out.println(matcher.group(1));
+                         device_Id=matcher.group(1);
+                         }
+                 }
+             }  
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
     	
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
         
        
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"device");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,device_Id);
        
         capabilities.setCapability(MobileCapabilityType.APP,"delhivery.lastmile.dev");
      
@@ -85,7 +107,7 @@ public class AppLauncher {
 		
 		if (execution_env.equals("local")) {			
 			nodeip = publicipAddress;
-			nodeUrl = nodeUrl1 + nodeip + port1 + nodeUrl2;
+		//	nodeUrl = nodeUrl1 + nodeip + port1 + nodeUrl2;
 			
 		}
 		

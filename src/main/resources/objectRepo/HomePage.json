@@ -1,3 +1,4 @@
 {
-   
+   "shipment":"//android.widget.Button[contains(@text,'SHIPMENT')]",
+   "shipment_text":"(//android.support.v7.app.ActionBar$Tab)[0]"
 }

@@ -22,6 +22,8 @@ public class LogInPageTest extends AppLauncher {
 	String Home_text= logInPage.logIn();
 	Assert.assertEquals(Home_text, "Last Mile");
 	
+	System.out.println(logInPage.shipment());
+	
 	}
 
 

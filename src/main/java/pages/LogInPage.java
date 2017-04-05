@@ -7,9 +7,13 @@ import java.util.Calendar;
 
 import org.testng.Assert;
 
+import utils.Helper;
+
 public class LogInPage extends BasePage {
 
 	
+	String HomePage = "./src/main/resources/objectRepo/HomePage.json";
+	Helper help= new Helper();
 	public void isValid() {
 
 	}
@@ -32,7 +36,15 @@ public class LogInPage extends BasePage {
 		return Text;
 		
 	}	
-		
+		public String shipment()
+		{
+			String shipment_xpath=helper.parseJSONToString("shipment_text", HomePage);
+			System.out.println(shipment_xpath);
+			//String shipment_Text=helper.findElementByXpath(shipment_xpath).getText();
+			helper.findElementById("delhivery.lastmile.dev:id/item_todo_seller").click();
+			helper.sleep(1000);
+			return shipment_xpath;
+		}
 	}
 
 	
