@@ -19,7 +19,10 @@ public class LogInPageTest extends AppLauncher {
     
 @Test(description = "Verify login1",priority=1)
 	public void verifyLogInSuccessful() {
-	logInPage.logIn();
+	String Home_text= logInPage.logIn();
+	Assert.assertEquals(Home_text, "Last Mile");
+	
+	System.out.println(logInPage.shipment());
 	
 	}
 
@@ -40,13 +43,18 @@ public void login()
 			e.printStackTrace();
 		}
 		
-        logInPage.logIn();
+       
 	}
 	
 	
 @AfterMethod
 public void after()
 {
-	driver.quit();
+	try {
+		a.tearDown();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 }
 	}
