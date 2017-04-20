@@ -46,6 +46,12 @@
 			<scope>system</scope>
 			<systemPath>${basedir}/libs/BuggersLibs.jar</systemPath>
 		</dependency>
+	    <dependency>
+    	  <groupId>com.relevantcodes</groupId>
+    	  <artifactId>extentreports</artifactId>
+    	  <version>2.41.1</version>
+    	  <scope>compile</scope>
+    	</dependency>
 	</dependencies>
 
 	<build>
