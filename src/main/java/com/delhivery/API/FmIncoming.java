@@ -13,18 +13,20 @@ public class FmIncoming {
 	
 	RestAPIUtility fmPostCallObject = new RestAPIUtility();
 
-	public void FMIncomingAPICall(String fmIncomingUrl, String[] waybill, String client, String center,Map<String, String> headers) {
+	public void FMIncomingAPICall(String BaseUrl, String[] waybill, String client, String center,Map<String, String> headers) {
 		try{
-			System.out.println("===============FMInomcing API==================");
-			
 			JSONArray jsonArray=null;
+			String fmIncomingUrl = BaseUrl+"/fm/api/incoming/";
 			
+			System.out.println("===============FMInomcing API==================");
+						
 			String payload = fmInocmingPayload(center, waybill, client);
 
 			//test.log(LogStatus.PASS, "FM Incoming Payload"+ payload);
 			
 			String output = fmPostCallObject.PostRequestWithBodyAndRetrunAsString(fmIncomingUrl, headers, payload);
 
+			System.out.println(output);
 			//test.log(LogStatus.PASS, "FM Incoming response output"+ output);
 			
 			//Response JSON parsing ---- Use this if JSONArray read is required---

@@ -21,6 +21,7 @@ public class ManifestationAPI {
 	public String[] cmuApi_push(String BaseUrl,Map<String, String> headers,String[] waybill){
 		try {
 			String CMUPushUrl = BaseUrl+"/cmu/push/json/";
+			System.out.println(CMUPushUrl);
 			System.out.println("==============Manifestation API===================");
 			for(int i=0;i<waybill.length;i++){
 				//ExtentTestManager.getTest().log(LogStatus.PASS, "Waybill is "+ waybill[i]);

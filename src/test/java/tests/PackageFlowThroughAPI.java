@@ -11,7 +11,7 @@ import com.delhivery.API.GenericIncomingAPI;
 import com.delhivery.API.ManifestationAPI;
 import com.delhivery.API.WaybillFetchAPI;
 
-public class PackageCrationFlow {
+public class PackageFlowThroughAPI {
 
 	
 	WaybillFetchAPI waybillObject;
@@ -39,6 +39,9 @@ public class PackageCrationFlow {
 		waybill=new String[2];
 		
 		waybillObject = new WaybillFetchAPI();
+		manifestObj = new ManifestationAPI();
+		fmi = new FmIncoming();
+		gn = new GenericIncomingAPI();
 		
 		headerWaybill = new HashMap<String, String>();
 		headerCMU = new HashMap<String, String>();
@@ -47,6 +50,7 @@ public class PackageCrationFlow {
 		
 		headerWaybill.put("Accept", "application/json");
 		headerWaybill.put("Authorization", auth);
+		headerWaybill.put("Content-Type", "application/json");
 		
 		headerCMU.put("Accept", "application/x-www-form-urlencoded");
 		headerCMU.put("Content-Type", "application/x-www-form-urlencoded");
@@ -64,7 +68,7 @@ public class PackageCrationFlow {
 	}
 
 	
-/*	@Test(priority = 1, dependsOnMethods = {"testWayillFetch"})
+	@Test(priority = 1, dependsOnMethods = {"testWayillFetch"})
 	public void testManifestAPI(){
 		waybill = manifestObj.cmuApi_push(BaseUrl, headerCMU, waybill);
 	}
@@ -79,4 +83,4 @@ public class PackageCrationFlow {
 		gn.generic_Incoming_API(BaseUrl, center, waybill,headerWaybill);
 	}
 
-*/}
+}

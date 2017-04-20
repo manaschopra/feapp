@@ -45,7 +45,7 @@ public class WaybillFetchAPI {
 			//ExtentTestManager.getTest().log(LogStatus.PASS, "Waybill Array"+ wbns);
 			for(int i=0;i<wbns.size();i++){
 				waybill[i] =wbns.get(i).toString();	
-				//System.out.println(waybill[i]);
+				System.out.println(waybill[i]);
 				//ExtentTestManager.getTest().log(LogStatus.PASS, "Waybill Created are: "+ waybill[i]);
 			}
 			
